@@ -2,23 +2,16 @@
 #include <stdio.h>
 
 int main() {
-    int N, X;
-    scanf("%d", &N); 
+    float A[100];
 
-    for (int i = 0; i < N; i++) {
-        scanf("%d", &X);
-        int soma = 0;
+ 
+    for (int i = 0; i < 100; i++) {
+        scanf("%f", &A[i]);
+    }
 
-        for (int j = 1; j <= X / 2; j++) {
-            if (X % j == 0) {
-                soma += j;
-            }
-        }
-
-        if (soma == X) {
-            printf("%d eh perfeito\n", X);
-        } else {
-            printf("%d nao eh perfeito\n", X);
+    for (int i = 0; i < 100; i++) {
+        if (A[i] <= 10.0) {
+            printf("A[%d] = %.1f\n", i, A[i]);
         }
     }
 
@@ -26,19 +19,91 @@ int main() {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//1175 - TROCA EM VETOR I
+#include <stdio.h>
 
+int main() {
+    int N[20], temp;
 
-//11745 - TROCA EM VETOR I
+    
+    for (int i = 0; i < 20; i++) {
+        scanf("%d", &N[i]);
+    }
 
+  
+    for (int i = 0; i < 10; i++) {
+        temp = N[i];
+        N[i] = N[19 - i];
+        N[19 - i] = temp;
+    }
 
+    for (int i = 0; i < 20; i++) {
+        printf("N[%d] = %d\n", i, N[i]);
+    }
 
+    return 0;
+}
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //1176- FIBONACCI EM VETOR
+#include <stdio.h>
 
+int main() {
+    int T, N;
+    unsigned long long fib[61];
 
+    fib[0] = 0;
+    fib[1] = 1;
 
+    for (int i = 2; i <= 60; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+
+    scanf("%d", &T);
+    
+    for (int i = 0; i < T; i++) {
+        scanf("%d", &N);
+        printf("Fib(%d) = %llu\n", N, fib[N]);
+    }
+
+    return 0;
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //1177 - PREENCHIMENTO DE VETOR II
+#include <stdio.h>
 
+int main() {
+    int T;
+    int N[1000];
 
+    scanf("%d", &T);
 
+    for (int i = 0; i < 1000; i++) {
+        N[i] = i % T;
+        printf("N[%d] = %d\n", i, N[i]);
+    }
+
+    return 0;
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //1178 -
+#include <stdio.h>
+
+int main() {
+    double N[100];
+    double X;
+
+    scanf("%lf", &X);
+
+    N[0] = X;
+
+    for (int i = 1; i < 100; i++) {
+        N[i] = N[i - 1] / 2.0;
+    }
+
+    for (int i = 0; i < 100; i++) {
+        printf("N[%d] = %.4lf\n", i, N[i]);
+    }
+
+    return 0;
+}
