@@ -1,20 +1,168 @@
 //1180 - MENOR E POSIÇÃO
+#include <stdio.h>
+
+int main() {
+    int N, i, menor, pos;
+
+    scanf("%d", &N);
+
+    int X[N];
+
+    for (i = 0; i < N; i++) {
+        scanf("%d", &X[i]);
+    }
+
+    menor = X[0];
+    pos = 0;
+
+    for (i = 1; i < N; i++) {
+        if (X[i] < menor) {
+            menor = X[i];
+            pos = i;
+        }
+    }
+
+    printf("Menor valor: %d\n", menor);
+    printf("Posicao: %d\n", pos);
+
+    return 0;
+}
+
 
 
 
 
 //1181 - LINHA NA MATRIZ
+#include <stdio.h>
+
+int main() {
+    int L, i, j;
+    char T;
+    double M[12][12], soma = 0.0;
+
+    scanf("%d", &L);
+    scanf(" %c", &T); // Espaço antes de %c para ignorar quebra de linha
+
+    for (i = 0; i < 12; i++) {
+        for (j = 0; j < 12; j++) {
+            scanf("%lf", &M[i][j]);
+        }
+    }
+
+    for (j = 0; j < 12; j++) {
+        soma += M[L][j];
+    }
+
+    if (T == 'S') {
+        printf("%.1lf\n", soma);
+    } else if (T == 'M') {
+        printf("%.1lf\n", soma / 12.0);
+    }
+
+    return 0;
+}
+
 
 
 
 //1182 - COLUNA NA MATRIZ
+#include <stdio.h>
+
+int main() {
+    int C, i, j;
+    char T;
+    double M[12][12], soma = 0.0;
+
+    scanf("%d", &C);
+    scanf(" %c", &T); // espaço para consumir newline
+
+    for (i = 0; i < 12; i++) {
+        for (j = 0; j < 12; j++) {
+            scanf("%lf", &M[i][j]);
+        }
+    }
+
+    for (i = 0; i < 12; i++) {
+        soma += M[i][C];
+    }
+
+    if (T == 'S') {
+        printf("%.1lf\n", soma);
+    } else if (T == 'M') {
+        printf("%.1lf\n", soma / 12.0);
+    }
+
+    return 0;
+}
+
 
 
 
 //1183 - ACIMA DA DIAGONAL PRINCIPAL
+#include <stdio.h>
+
+int main() {
+    char O;
+    double M[12][12], soma = 0.0;
+    int i, j, count = 0;
+
+    scanf(" %c", &O); // lê o caractere (com espaço para ignorar newline)
+
+    for (i = 0; i < 12; i++) {
+        for (j = 0; j < 12; j++) {
+            scanf("%lf", &M[i][j]);
+        }
+    }
+
+    for (i = 0; i < 12; i++) {
+        for (j = i + 1; j < 12; j++) {
+            soma += M[i][j];
+            count++;
+        }
+    }
+
+    if (O == 'S') {
+        printf("%.1lf\n", soma);
+    } else if (O == 'M') {
+        printf("%.1lf\n", soma / count);
+    }
+
+    return 0;
+}
+
 
 
 
 //1184 - ABAIXO DA DIAGONAL PRINCIPAL
+#include <stdio.h>
+
+int main() {
+    char O;
+    double M[12][12], soma = 0.0;
+    int i, j, count = 0;
+
+    scanf(" %c", &O);
+
+    for (i = 0; i < 12; i++) {
+        for (j = 0; j < 12; j++) {
+            scanf("%lf", &M[i][j]);
+        }
+    }
+
+    for (i = 1; i < 12; i++) {
+        for (j = 0; j < i; j++) {
+            soma += M[i][j];
+            count++;
+        }
+    }
+
+    if (O == 'S') {
+        printf("%.1lf\n", soma);
+    } else if (O == 'M') {
+        printf("%.1lf\n", soma / count);
+    }
+
+    return 0;
+}
 
 
